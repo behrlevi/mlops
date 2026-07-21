@@ -1,0 +1,18 @@
+[project]
+name = "fraud-detection"
+version = "0.1.0"
+dependencies = [
+    "scikit-learn",
+    "pandas",
+    "mlflow",
+    "dvc[s3]",
+    "optuna",
+    "pyyaml"
+]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
+
+[tool.black]
+line-length = 88

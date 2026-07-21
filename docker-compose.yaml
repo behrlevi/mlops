@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # SeaweedFS (S3-compatible Object Storage for DVC & MLflow artifacts)
+  seaweedfs:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweedfs
+    ports:
+      - "8333:8333" # S3 API port
+      - "9333:9333" # Master port
+    command: "server -s3 -dir=/data"
+    volumes:
+      - seaweed_data:/data
+
+  # PostgreSQL (Backend store for MLflow experiment metadata)
+  postgres:
+    image: postgres:15-alpine
+    container_name: mlflow_postgres
+    environment:
+      POSTGRES_USER: mlflow_user
+      POSTGRES_PASSWORD: mlflow_password
+      POSTGRES_DB: mlflow_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # MLflow Tracking Server (Days 020, 029, 030)
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.11.3
+    container_name: mlflow_server
+    ports:
+      - "5000:5000"
+    environment:
+      - AWS_ACCESS_KEY_ID=any
+      - AWS_SECRET_ACCESS_KEY=any
+      - MLFLOW_S3_ENDPOINT_URL=http://seaweedfs:8333
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://mlflow_user:mlflow_password@postgres:5432/mlflow_db
+      --default-artifact-root s3://mlflow-artifacts/
+      --host 0.0.0.0
+      --port 5000
+    depends_on:
+      - postgres
+      - seaweedfs
+
+volumes:
+  seaweed_data:
+  postgres_data:
