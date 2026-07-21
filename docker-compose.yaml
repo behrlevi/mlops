@@ -27,7 +27,9 @@ services:
 
   # MLflow Tracking Server (Days 020, 029, 030)
   mlflow:
-    image: ghcr.io/mlflow/mlflow:v2.11.3
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
     container_name: mlflow_server
     ports:
       - "5000:5000"
