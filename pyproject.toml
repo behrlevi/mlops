@@ -10,6 +10,13 @@ dependencies = [
     "pyyaml"
 ]
 
+[project.optional-dependencies]
+devops = [
+    "pre-commit",
+    "ruff",
+    "black"
+]
+
 [tool.ruff]
 line-length = 88
 select = ["E", "F", "I"]

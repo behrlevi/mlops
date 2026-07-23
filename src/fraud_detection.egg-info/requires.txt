@@ -1,0 +1,11 @@
+scikit-learn
+pandas
+mlflow
+dvc[s3]
+optuna
+pyyaml
+
+[devops]
+pre-commit
+ruff
+black

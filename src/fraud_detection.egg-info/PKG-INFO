@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: fraud-detection
+Version: 0.1.0
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: mlflow
+Requires-Dist: dvc[s3]
+Requires-Dist: optuna
+Requires-Dist: pyyaml
+Provides-Extra: devops
+Requires-Dist: pre-commit; extra == "devops"
+Requires-Dist: ruff; extra == "devops"
+Requires-Dist: black; extra == "devops"
