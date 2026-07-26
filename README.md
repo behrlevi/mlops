@@ -1,8 +1,10 @@
-Start Services: Run docker compose up -d in terminal.
+Start Services: ```docker compose up -d```
 
-Setup Env: Run make setup.
+Install uv: ```curl -LsSf https://astral.sh/uv/install.sh | sh```
 
-Execute Pipeline: Run python src/train.py.
+Setup Env: ```make setup```
+
+Execute Pipeline: python src/train.py.
 
 Open MLflow UI: Navigate to http://localhost:5000 in your browser.
 
