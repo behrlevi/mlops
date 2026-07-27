@@ -7,6 +7,7 @@ Requires-Dist: mlflow
 Requires-Dist: dvc[s3]
 Requires-Dist: optuna
 Requires-Dist: pyyaml
+Requires-Dist: jupyterlab
 Provides-Extra: devops
 Requires-Dist: pre-commit; extra == "devops"
 Requires-Dist: ruff; extra == "devops"

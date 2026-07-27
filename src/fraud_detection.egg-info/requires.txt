@@ -4,6 +4,7 @@ mlflow
 dvc[s3]
 optuna
 pyyaml
+jupyterlab
 
 [devops]
 pre-commit
