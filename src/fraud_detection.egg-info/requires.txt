@@ -5,6 +5,8 @@ dvc[s3]
 optuna
 pyyaml
 jupyterlab
+boto3
+awscli
 
 [devops]
 pre-commit

@@ -8,7 +8,9 @@ dependencies = [
     "dvc[s3]",
     "optuna",
     "pyyaml",
-    "jupyterlab"
+    "jupyterlab",
+    "boto3",
+    "awscli"
 ]
 
 [project.optional-dependencies]

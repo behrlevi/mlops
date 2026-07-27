@@ -1,12 +1,38 @@
-Start Services: ```docker compose up -d```
+Start Services:
+```docker compose up -d```
 
-Install uv: ```curl -LsSf https://astral.sh/uv/install.sh | sh```
+Install uv:
+```curl -LsSf https://astral.sh/uv/install.sh | sh```
 
-Setup Env: ```make setup```
+Setup Env:
+```make setup```
 
-Execute Pipeline: python src/train.py.
+Create a SeaweedFS bucket
 
-Open MLflow UI: Navigate to http://localhost:5000 in your browser.
+The Seaweed dashboard can be accessed at: http://localhost:9333/
+
+You need to create the bucket declared in the Dockerfile as a the default artifact root for this to work.
+```
+python3 -c "
+import boto3
+s3 = boto3.client('s3', endpoint_url='http://localhost:8333', aws_access_key_id='any', aws_secret_access_key='any')
+s3.create_bucket(Bucket='mlflow-artifacts')
+"
+```
+
+To view the available buckets:
+```
+echo "fs.ls /buckets" | podman exec -i seaweedfs weed shell
+```
+
+To display the contents of the bucket, use this after you ran the experiment:
+```
+AWS_ACCESS_KEY_ID=any AWS_SECRET_ACCESS_KEY=any aws s3 ls s3://mlflow-artifacts/ --recursive --endpoint-url http://localhost:8333
+```
+Execute Pipeline:
+```python3 src/train.py.```
+
+MLflow UI at http://localhost:5000
 
     You will see the Fraud_Detection_Bakeoff experiment.
 
