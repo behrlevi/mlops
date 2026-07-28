@@ -66,4 +66,11 @@ Jupyter Lab is already installed in the venv. Activate is and run:
 
 ```
 nohup jupyter lab --config=./jupyter_lab_config.py --allow-root --no-browser > /tmp/jupyter.log 2>&1 &
+```
+
+Day 03:
+Use the following command to create a .txt from requirements.ini file listing the names of the packages (one per line)
+and optionally their pinned versions
+```
+uv pip compile requirements.in -o requirements.txt
 ``` 
