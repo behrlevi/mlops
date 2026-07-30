@@ -1,1 +1,19 @@
 uv.lock
+# Exclure ML artifacts
+
+# Ptyhon bytecode caches
+src/__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Trained models
+*.pkl
+
+# Local environment files
+.env
+

@@ -41,7 +41,7 @@ MLflow UI at http://localhost:5000
     Check the Models tab to see FraudClassifier version 1 (Days 025 & 030).
 
 
-Day 01:
+### Day 01:
 - create a venv
     This could be done using the `uv` in the Makefile or manually:
     ```
@@ -59,7 +59,7 @@ Day 01:
     uv pip freeze > requirements.txt
     ```
 
-Day 02:
+### Day 02:
 
 Using Jupyter Notebook.
 Jupyter Lab is already installed in the venv. Activate is and run:
@@ -68,9 +68,38 @@ Jupyter Lab is already installed in the venv. Activate is and run:
 nohup jupyter lab --config=./jupyter_lab_config.py --allow-root --no-browser > /tmp/jupyter.log 2>&1 &
 ```
 
-Day 03:
+### Day 03:
+
 Use the following command to create a .txt from requirements.ini file listing the names of the packages (one per line)
 and optionally their pinned versions
 ```
 uv pip compile requirements.in -o requirements.txt
-``` 
+```
+
+### Day 04:
+
+Introducing a `.gitignore` file
+A .gitignore tells Git which paths to leave untracked, but it has no effect on files already committed.
+We will create a list of files to exclude Python caches, trained model files, the virtual environment,
+notebook checkpoints and local secrets from the commits.
+
+To list files currently tracked by git
+```
+git ls-files
+```
+
+To untrack already-commited artifacts
+```
+git rm -r --cached
+```
+You need to provide the paths for this command like this
+```
+git rm -r --cached src/__pycache__ models/fraud_model.pkl venv
+```
+
+In order to implement the cleanup, .gitignore file needs to be added to the stagin area
+```
+git add .gitignore
+```
+
+
