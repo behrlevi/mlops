@@ -1,5 +1,5 @@
 # .PHONY is used so that the commands are not interpreted as filenames as by default
-.PHONY: setup lint format run-dvc run-optuna
+.PHONY: setup lint format run-dvc
 
 setup:
 	uv venv # Creates a virtual environment
@@ -17,3 +17,9 @@ format:
 run-dvc:
 	uv run dvc repro
 
+clean:
+	find . -type d -name __pycache__ -exec rm -rf {} +
+	rm -rf .pytest_cache
+	rm -rf models/*
+
+all: setup lint format run-dvc
