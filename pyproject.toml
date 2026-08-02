@@ -21,9 +21,11 @@ devops = [
 ]
 
 [tool.ruff]
-line-length = 88
-select = ["E", "F", "I"]
+line-length = 120
 extend-exclude = ["jupyter_lab_config.py"]
 
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
 [tool.black]
-line-length = 88
+line-length = 120

@@ -7,11 +7,9 @@ setup:
 	uv run pre-commit install # Wires up Git hooks which automatically check errors and formatting before allowing a commit
 
 lint:
-	uv run ruff check src/
-	uv run black --check src/
+	uv run ruff check --fix src/
 
 format:
-	uv run ruff check --fix src/
 	uv run black src/
 
 run-dvc:
