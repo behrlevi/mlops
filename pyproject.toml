@@ -10,14 +10,17 @@ dependencies = [
     "pyyaml",
     "jupyterlab",
     "boto3",
-    "awscli"
+    "awscli",
+    "numpy"
 ]
 
 [project.optional-dependencies]
 devops = [
     "pre-commit",
     "ruff",
-    "black"
+    "black",
+    "pytest",
+    "build"
 ]
 
 [tool.ruff]
@@ -29,3 +32,15 @@ select = ["E", "F", "W", "I"]
 
 [tool.black]
 line-length = 120
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Picked up by the python3 -m pytest tests/ -q command
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+# Picked up by python3 -m build
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -7,8 +7,11 @@ pyyaml
 jupyterlab
 boto3
 awscli
+numpy
 
 [devops]
 pre-commit
 ruff
 black
+pytest
+build

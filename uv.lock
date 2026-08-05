@@ -951,13 +951,14 @@ wheels = [
 [[package]]
 name = "fraud-detection"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "awscli" },
     { name = "boto3" },
     { name = "dvc", extra = ["s3"] },
     { name = "jupyterlab" },
     { name = "mlflow" },
+    { name = "numpy" },
     { name = "optuna" },
     { name = "pandas" },
     { name = "pyyaml" },
@@ -979,6 +980,7 @@ requires-dist = [
     { name = "dvc", extras = ["s3"] },
     { name = "jupyterlab" },
     { name = "mlflow" },
+    { name = "numpy" },
     { name = "optuna" },
     { name = "pandas" },
     { name = "pre-commit", marker = "extra == 'devops'" },
