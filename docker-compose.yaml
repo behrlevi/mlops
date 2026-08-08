@@ -41,7 +41,7 @@ services:
       mlflow server
       --backend-store-uri postgresql://mlflow_user:mlflow_password@postgres:5432/mlflow_db
       --host 0.0.0.0
-      --default-artifact-root s3://mlflow-artifacts/ 
+      --default-artifact-root s3://mlflow-artifacts/
       --port 5000
     depends_on:
       - postgres

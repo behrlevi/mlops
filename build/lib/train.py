@@ -34,9 +34,7 @@ def objective(trial, X, y, seed):
 
     # Stratified K-Fold (Day 034)
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)
-    model = RandomForestClassifier(
-        n_estimators=n_estimators, max_depth=max_depth, random_state=seed
-    )
+    model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth, random_state=seed)
 
     scores = cross_val_score(model, X, y, cv=cv, scoring="f1")
     mean_f1 = scores.mean()
