@@ -1,0 +1,6 @@
+{
+    "project_name": "fraud-detection",
+    "author": "Levente Béhr",
+    "python_version": "3.12",
+    "ml_framework": ["sklearn", "pytorch", "tensorflow"]
+}

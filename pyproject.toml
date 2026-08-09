@@ -15,12 +15,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-devops = [
+tools = [
     "pre-commit",
     "ruff",
     "black",
     "pytest",
-    "build"
+    "build",
+    "cookiecutter"
 ]
 
 [tool.ruff]

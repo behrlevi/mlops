@@ -9,9 +9,10 @@ boto3
 awscli
 numpy
 
-[devops]
+[tools]
 pre-commit
 ruff
 black
 pytest
 build
+cookiecutter

@@ -3,7 +3,7 @@
 
 setup:
 	uv venv # Creates a virtual environment
-	uv pip install ".[devops]" # It finds pyproject.toml
+	uv sync --extra tools # Install devops packages from pyproject.toml
 	uv run pre-commit install # Wires up Git hooks which automatically check errors and formatting before allowing a commit
 
 lint:

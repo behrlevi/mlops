@@ -11,9 +11,10 @@ Requires-Dist: jupyterlab
 Requires-Dist: boto3
 Requires-Dist: awscli
 Requires-Dist: numpy
-Provides-Extra: devops
-Requires-Dist: pre-commit; extra == "devops"
-Requires-Dist: ruff; extra == "devops"
-Requires-Dist: black; extra == "devops"
-Requires-Dist: pytest; extra == "devops"
-Requires-Dist: build; extra == "devops"
+Provides-Extra: tools
+Requires-Dist: pre-commit; extra == "tools"
+Requires-Dist: ruff; extra == "tools"
+Requires-Dist: black; extra == "tools"
+Requires-Dist: pytest; extra == "tools"
+Requires-Dist: build; extra == "tools"
+Requires-Dist: cookiecutter; extra == "tools"
