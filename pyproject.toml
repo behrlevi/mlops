@@ -21,7 +21,8 @@ tools = [
     "black",
     "pytest",
     "build",
-    "cookiecutter"
+    "cookiecutter",
+    "dvc-s3"
 ]
 
 [tool.ruff]

@@ -16,3 +16,4 @@ black
 pytest
 build
 cookiecutter
+dvc-s3

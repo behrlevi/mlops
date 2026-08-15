@@ -9,7 +9,8 @@ Setup Env:
 
 Create a SeaweedFS bucket
 
-The Seaweed dashboard can be accessed at: http://localhost:9333/
+The Seaweed master node interface can be accessed at: http://localhost:9333
+and the Filer at http://localhost:8888
 
 You need to create the bucket declared in the Dockerfile as a the default artifact root for this to work.
 ```

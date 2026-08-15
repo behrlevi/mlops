@@ -1,18 +1,17 @@
 version: '3.8'
 
 services:
-  # SeaweedFS (S3-compatible Object Storage for DVC & MLflow artifacts)
   seaweedfs:
     image: chrislusf/seaweedfs:latest
     container_name: seaweedfs
     ports:
       - "8333:8333" # S3 API port
       - "9333:9333" # Master port
-    command: "server -s3 -dir=/data"
+      - "8888:8888" # Filer
+    command: "server -s3 -filer -dir=/data"
     volumes:
       - seaweed_data:/data
 
-  # PostgreSQL (Backend store for MLflow experiment metadata)
   postgres:
     image: postgres:15-alpine
     container_name: mlflow_postgres
@@ -25,7 +24,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # MLflow Tracking Server (Days 020, 029, 030)
   mlflow:
     build:
       context: .
