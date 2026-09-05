@@ -14,3 +14,12 @@ stages:
     outs:
       - data/processed/train.csv
       - data/processed/test.csv
+  train:
+    cmd: python3 src/models/train.py
+    deps:
+      - data/processed/train.csv
+      - src/models/train.py
+    outs:
+      - models/model.pkl
+    params:
+      - n_estimators
