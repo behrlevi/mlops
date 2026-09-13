@@ -1,9 +1,11 @@
+import json
 import os
 
 import joblib
 import pandas as pd
 import yaml
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score
 
 os.makedirs("models", exist_ok=True)
 
@@ -20,6 +22,14 @@ model = RandomForestClassifier(
     random_state=42,
 )
 model.fit(X_train, y_train)
+preds = model.predict(X_train)
+metrics = {
+    "accuracy": round(accuracy_score(y_train, preds), 4),
+    "f1_score": round(f1_score(y_train, preds, zero_division=0), 4),
+}
+
 joblib.dump(model, "models/model.pkl")
+with open("metrics.json", "w") as f:
+    json.dump(metrics, f, indent=2)
 
 print(f"Trained RandomForestClassifier with n_estimators={params['n_estimators']}")

@@ -23,3 +23,6 @@ stages:
       - models/model.pkl
     params:
       - n_estimators
+    metrics:
+      - metrics.json:
+          cache: false
