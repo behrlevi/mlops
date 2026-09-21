@@ -16,4 +16,3 @@ venv/
 
 # Local environment files
 .env
-/metrics.json
