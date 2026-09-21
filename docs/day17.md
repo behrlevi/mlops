@@ -18,3 +18,6 @@ You can try setting different values for `max_depth`, which is
 esentially the depth of each tree in the random forest. Choosing
 low values will cause underfitting, while higher overfitting as
 you will see on the `f1_score`.
+
+To apply the best fit, use `dvc exp apply <exp-name>'.
+This will apply the parameters used in the selected experiment.
