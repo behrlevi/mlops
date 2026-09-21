@@ -53,14 +53,14 @@ stages:
       size: 1897
     params:
       params.yaml:
-        max_depth: 4
+        max_depth: 100
         n_estimators: 100
     outs:
     - path: metrics.json
       hash: md5
-      md5: 89efb9e61f640fdc1232eb6e70cff1f7
+      md5: b0b115231a3c4f9408c3e96472e63d63
       size: 44
     - path: models/model.pkl
       hash: md5
-      md5: 5ed7aeef917328e5b473497ea8b3c654
-      size: 258921
+      md5: 4ca323f6cc26515fb6b89043c665a0b5
+      size: 2557481
