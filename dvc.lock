@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/raw/transactions.csv
       hash: md5
-      md5: 34832f8da536af18bb25236981b31c04
-      size: 64988
+      md5: eab85de39e78570db1fbc6bd40158809
+      size: 32481
     - path: src/data/process_data.py
       hash: md5
       md5: 6cd7d24b57e4621ac0f3f6728d5a0215
@@ -14,15 +14,15 @@ stages:
     outs:
     - path: data/processed/clean_transactions.csv
       hash: md5
-      md5: 34832f8da536af18bb25236981b31c04
-      size: 64988
+      md5: eab85de39e78570db1fbc6bd40158809
+      size: 32481
   split_data:
     cmd: python3 src/data/split_data.py
     deps:
     - path: data/processed/clean_transactions.csv
       hash: md5
-      md5: 34832f8da536af18bb25236981b31c04
-      size: 64988
+      md5: eab85de39e78570db1fbc6bd40158809
+      size: 32481
     - path: src/data/split_data.py
       hash: md5
       md5: c2c4e436e57fb0ea645360d51875e65e
@@ -30,23 +30,23 @@ stages:
     outs:
     - path: data/processed/test.csv
       hash: md5
-      md5: 8c4c800118d0f772e906cc6d078f72c4
-      size: 13147
+      md5: df71ad4ee42e4d38efb87f1984b32ff3
+      size: 6621
     - path: data/processed/train.csv
       hash: md5
-      md5: 1d9e91ebeec0d17ccd48207c48305bbe
-      size: 51980
+      md5: c409bd47dd6f1f02934a3edc7b46654c
+      size: 25999
   train:
     cmd: python3 src/models/train.py
     deps:
     - path: data/processed/test.csv
       hash: md5
-      md5: 8c4c800118d0f772e906cc6d078f72c4
-      size: 13147
+      md5: df71ad4ee42e4d38efb87f1984b32ff3
+      size: 6621
     - path: data/processed/train.csv
       hash: md5
-      md5: 1d9e91ebeec0d17ccd48207c48305bbe
-      size: 51980
+      md5: c409bd47dd6f1f02934a3edc7b46654c
+      size: 25999
     - path: src/models/train.py
       hash: md5
       md5: d9bff2a421e44dca94a74393794d41ad
@@ -58,9 +58,9 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: b0b115231a3c4f9408c3e96472e63d63
+      md5: 7ee6742139c393ebeb0e49560d2b6ca5
       size: 44
     - path: models/model.pkl
       hash: md5
-      md5: 4ca323f6cc26515fb6b89043c665a0b5
-      size: 2557481
+      md5: 113f6985df886a49f85e9ce172c020bf
+      size: 1393161
