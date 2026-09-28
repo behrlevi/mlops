@@ -1,6 +1,9 @@
 # Comparing DVC experiments
 
 A DVC experiment is a run of the pipeline with the given parameters.
+Under the hood it runs `dvc repro` with added tracking.
+It was invented to solve the commit clutter, whereas during
+finetuning the pipeline is ran and commited multiple times to preserve the state resulting in a myriad of Git commits.
 Since we have set up version control for the training metrics,
 we can try to run experiments with different `max_depth` values
 and store the results in commits.

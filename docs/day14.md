@@ -22,10 +22,10 @@ The lock file is used to store the current state of the pipeline
 after it has been successfully executed. It records the MD5 hash
 values of the files managed by DVC. This connects git version control
 with the DVC repository and the commit is thus tied to a certain state
-of the data. When you need to roll-back to a given point, git chechout
-will restore the lock file and subsequenty running dvc checkout will
-then instruct the system to download the files with the corresponding
-hash values from the remote repository.
+of the data. When you need to roll-back to a given point, `git checkout`
+will restore the lock file and subsequenty running `dvc checkout` reads
+the hashes in `dvc.lock` and links the corresponding file back into the
+workspace from the local `.dvc/cache`.
 
 After `dvc push` you can open the Filer and see that the new .cvs files
 were uploaded to SeaweedFS. It is worhwile to notice that the files in

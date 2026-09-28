@@ -1,37 +1,20 @@
-# Version datasets accross branches
+# Complete DVC Pipeline
 
-Since Git only versions the .lock files and the large datasets are handled by DVC, we need to learn
-how to manage different versions of the models using Git branches.
+A DVC pipeline is a Directed Acyclic Graph (DAG) declared
+in `dvc.yaml`. The stages represent the nodes of the graph.
+As DVC walks down these stages, it changes the hash values
+in `dvc.lock`. Versioning this lock file makes the runs
+reproducible. The large artifacts (model, data) are handled
+by SeaweedFS.
 
-You can try out a simple experiment.
-Image that you acquire a new dataset you can train you model on and you wish to do it on a separate branch.
-Copy current dataset
-```
-cp data/raw/transactions.csv data/raw/transactions_v2.csv
-```
-and make some adjustments to new dataset - delete some of the lines from it to make this easy.
-
-Add a simple tag to current commit to pin the state.
-```
-git tag v.1.0
-```
-
-Create a new branch and switch to it.
-```
-git branch v2
-git switch v2
-```
-
-Replace the old dataset with the new, add it to dvc and re-run the pipeline.
-```
-cp data/raw/transactions_v2.csv /data/raw/transactions.csv
-dvc add data/raw/transactions.csv
-dvc repro
-```
-A new transactions.dvc file will be created which holds the current state of the dataset.
-
-Switch back to the main branch with `git switch main` and open `transaction.csv`.
-You will see that it still has the modified content of v2.
-Remember, that git ignores the dataset as they are too big for this VCS.
-
-To re-generate the original `transactions.csv`, run `dvc checkout`.
+You can experiment with the pipeline by running `dvc repro`
+to reproduce the pipeline with current set of `params.yaml`.
+The model produced can be uploaded to the bucket with `dvc push`.
+Try re-running the pipeline with different parameters and
+comitting the lock file. You can then reproduce various models
+by rolling back to previous commits with `git checkout` and running
+`dvc checkout`.
+Note that `git checkout` restores artifact from `.dvc/cache`, so if
+you were happen to clone the repository to another machine, you would
+also need to re-run the pipeline with the given parameters to get the
+model file.
