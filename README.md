@@ -40,3 +40,7 @@ MLflow UI at http://localhost:5000
     Select runs to open the MLflow Compare View (Day 036).
 
     Check the Models tab to see FraudClassifier version 1 (Days 025 & 030).
+
+Git Pre Commit
+The hooks are defined in `.pre-commit-config.yaml`.
+Running `pre-commit uninstall` deletes the pre commit script, thus disabling the checks.
