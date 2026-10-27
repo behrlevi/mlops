@@ -1,8 +1,12 @@
 README.md
 pyproject.toml
 src/data/__init__.py
-src/data/process_data.py
+src/data/evaluate.py
+src/data/ingest.py
+src/data/preprocess.py
 src/data/split_data.py
+src/data/train.py
+src/data/validate.py
 src/fraud_detection/__init__.py
 src/fraud_detection/predict.py
 src/fraud_detection.egg-info/PKG-INFO

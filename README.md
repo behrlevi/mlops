@@ -1,11 +1,17 @@
 Start Services:
-```docker compose up -d```
+```
+docker compose up -d
+```
 
 Install uv:
-```curl -LsSf https://astral.sh/uv/install.sh | sh```
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 Setup Env:
-```make setup```
+```
+make setup
+```
 
 Create a SeaweedFS bucket
 
