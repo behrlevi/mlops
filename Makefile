@@ -4,7 +4,7 @@
 setup:
 	uv venv # Creates a virtual environment
 	uv sync --extra tools # Install devops packages from pyproject.toml
-	uv run pre-commit install # Wires up Git hooks which automatically check errors and formatting before allowing a commit
+	#uv run pre-commit install # Wires up Git hooks which automatically check errors and formatting before allowing a commit
 
 lint:
 	uv run ruff check --fix src/

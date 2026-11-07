@@ -3,8 +3,9 @@ Start Services:
 docker compose up -d
 ```
 
-Install uv:
+Install make & uv:
 ```
+apt -y install make
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
@@ -29,7 +30,7 @@ s3.create_bucket(Bucket='mlflow-artifacts')
 
 To view the available buckets:
 ```
-echo "fs.ls /buckets" | podman exec -i seaweedfs weed shell
+echo "fs.ls /buckets" | docker exec -i seaweedfs weed shell
 ```
 
 To display the contents of the bucket, use this after you ran the experiment:
@@ -40,12 +41,6 @@ Execute Pipeline:
 ```python3 src/train.py.```
 
 MLflow UI at http://localhost:5000
-
-    You will see the Fraud_Detection_Bakeoff experiment.
-
-    Select runs to open the MLflow Compare View (Day 036).
-
-    Check the Models tab to see FraudClassifier version 1 (Days 025 & 030).
 
 Git Pre Commit
 The hooks are defined in `.pre-commit-config.yaml`.
